@@ -9,7 +9,7 @@
 ----------------------------------------------------------------------------------------------------*/
 
 body {
-	font: 13px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+	font: 14px/23px 'ContraRegular', Arial, sans-serif;
 }
 
 a:focus {
@@ -25,6 +25,9 @@ hr {
 
 /* `Headings
 ----------------------------------------------------------------------------------------------------*/
+h1,h2,h3,h4,h5,h6{
+	font:'CantarellRegular', Arial, sans-serif;
+}
 
 h1 {
 	font-size: 25px;

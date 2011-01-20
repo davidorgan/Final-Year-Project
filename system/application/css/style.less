@@ -21,17 +21,33 @@ the @ symbol.
   
   
 body{
-	 background: @primary_green;  
+	 background: #eeeeee;  
 }  
+	
+h1{
+	color: @blue_highlight;
+	padding:@general_padding;
+	margin-top:@general_padding;
+	font-family:'CantarellRegular', Arial, sans-serif;
+}
+	
+.left-marg{
+		margin-left:@general_padding;
+}
+	
 #main_container {  
 /* References the variable we created above. */  
     background: white;
+	padding-top:@general_padding;
+	padding-bottom:@general_padding;
 	margin-top:@general_padding;
-	border-top: 2px solid @alt_green;
+
 	
-	h2{
+	h1{
 		color: @blue_highlight;
 		padding:@general_padding;
+		font-family:'CantarellRegular', Arial, sans-serif;
+		border-bottom:1px solid @alt_green;
 	}  
 	
 	p{
@@ -44,5 +60,9 @@ body{
     a {  
         color: red;  
     } 
+	
+	#left_panel{
+		border-right: 1px dashed @primary_green;
+	}
 	
 }  

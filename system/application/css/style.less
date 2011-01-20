@@ -1,0 +1,48 @@
+/* 
+Variables! 
+*/  
+@primary_green: #96BA5A;  
+@secondary_green: #84B154;
+@alt_green: #5AAC7B;
+@blue_highlight: #4BC1DD;
+
+@general_padding: 10px;
+  
+/* 
+Mix-ins are like functions for commonly used operations, 
+such as apply borders. We create variables by prepending 
+the @ symbol. 
+*/  
+.rounded(@radius: 5px) {  
+    -moz-border-radius: @radius;  
+    -webkit-border-radius: @radius;  
+    border-radius: @radius;  
+}  
+  
+  
+body{
+	 background: @primary_green;  
+}  
+#main_container {  
+/* References the variable we created above. */  
+    background: white;
+	margin-top:@general_padding;
+	border-top: 2px solid @alt_green;
+	
+	h2{
+		color: @blue_highlight;
+		padding:@general_padding;
+	}  
+	
+	p{
+		padding:@general_padding;
+	}  
+/* Calls the .rounded mix-in (function) that we created, and overrides the default value. */  
+    .rounded();   
+  
+/* Nested selectors inherit their parent's selector as well. This allows for shorter code. */  
+    a {  
+        color: red;  
+    } 
+	
+}  

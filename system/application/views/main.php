@@ -3,6 +3,8 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>Social Network for Clubs and Socs - 'Oh, so they have Internet on computers now!'</title>
+
+
 <link rel="stylesheet" href= "<?php echo base_url(); ?>system/application/css/reset.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>system/application/css/text.css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>system/application/css/font.css" type="text/css" charset="utf-8">
@@ -15,14 +17,26 @@
 
 </head>
 <body>
-	<div class="container_24">
-	<h1>
-		Social Network for Clubs and Socs
-	</h1>
+	<div id="top_banner"> 
+			<div class="container_24">
+				<div class="grid_3">
+				<h1>
+					Coterie
+				</h1>
+				</div>
+				<div id="banner_right" class="grid_10">Home &nbsp;&nbsp; Clubs &nbsp;&nbsp; My Club &nbsp;&nbsp; Account</div>
+				<div class='grid_10_omega'>
+					<div id="fb-root"></div>
+						<script src="http://connect.facebook.net/en_US/all.js#appId=182794741757028&amp;xfbml=1"></script>
+						<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+				</div>
+			</div>
 	</div>
+	<!-- End top_banner -->
+
 <div id="main_container" class="container_24">
 
-	<div id="left_panel" class="grid_8">
+	<div id="left_panel" class="grid_7">
 		<h6 class="left-marg">
 			Left panel.
 		</h6>
@@ -31,12 +45,22 @@
 		</p>
 	</div>
 	<!-- end left_panel -->
-	<div id="main_panel" class="grid_15">
+	<div id="main_panel" class="grid_16">
 		<h6 class="left-marg">
 			Main panel.
 		</h6>
 		<p>
-			Lorem ipsum dolor sit amet, porttitor consequat suscipit, dolor nec, sodales ultricies massa eros leo ut amet. Sollicitudin egestas, vulputate nullam et velit laoreet vel nulla, rhoncus parturient. Urna non nulla ut. Duis porttitor suspendisse ipsum. Ante erat tristique erat dignissim vivamus. Donec cursus elit. Parturient et non fusce pharetra, posuere id justo fusce mauris vehicula, feugiat non, metus magna, mauris lacinia donec integer. Orci urna scelerisque sit morbi luctus inceptos, lacus purus dolore elit urna tortor nonummy. Quis nunc elit id maecenas. Fringilla pellentesque morbi gravida. Aliquam suspendisse convallis, aliquam vivamus, risus tristique quis leo praesent.
+			<iframe src="http://www.facebook.com/plugins/registration.php?
+             client_id=113869198637480&
+             redirect_uri=http%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fecho%2F&
+             fields=name,birthday,gender,location,email"
+        scrolling="auto"
+        frameborder="no"
+        style="border:none"
+        allowTransparency="true"
+        width="100%"
+        height="330">
+</iframe>
 		</p>
 	</div>
 	<!-- end main_panel -->

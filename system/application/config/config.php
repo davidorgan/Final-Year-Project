@@ -13,6 +13,16 @@
 */
 $config['base_url']	= "http://localhost/Final-Year-Project/";
 
+if ($_SERVER['HTTP_HOST'] == 'localhost')
+{
+    $config['base_url']	= "http://localhost/Final-Year-Project/";
+}
+elseif ($_SERVER['HTTP_HOST'] == 'danu2.it.nuigalway.ie')
+{
+    $config['base_url']     = "http://danu2.it.nuigalway.ie/DavidOrgansFYP/fypsite/";
+    
+}
+
 /*
 |--------------------------------------------------------------------------
 | Index File

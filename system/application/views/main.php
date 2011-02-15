@@ -25,11 +25,7 @@
 				</h1>
 				</div>
 				<div id="banner_right" class="grid_10">Home &nbsp;&nbsp; Clubs &nbsp;&nbsp; My Club &nbsp;&nbsp; Account</div>
-				<div class='grid_10_omega'>
-					<div id="fb-root"></div>
-						<script src="http://connect.facebook.net/en_US/all.js#appId=182794741757028&amp;xfbml=1"></script>
-						<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
-				</div>
+
 			</div>
 	</div>
 	<!-- End top_banner -->
@@ -49,18 +45,9 @@
 		<h6 class="left-marg">
 			Main panel.
 		</h6>
+
 		<p>
-			<iframe src="http://www.facebook.com/plugins/registration.php?
-             client_id=113869198637480&
-             redirect_uri=http%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fecho%2F&
-             fields=name,birthday,gender,location,email"
-        scrolling="auto"
-        frameborder="no"
-        style="border:none"
-        allowTransparency="true"
-        width="100%"
-        height="330">
-</iframe>
+Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus eleifend facilisis. Morbi et justo quis dui aliquam placerat. Quisque congue, enim et ullamcorper dignissim, nisi odio viverra turpis, eu congue mi eros non libero. Maecenas non sapien interdum erat molestie egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at viverra tellus. Cras libero justo, tristique sed congue at, lacinia in nulla. Morbi tempor faucibus eros, vel vulputate metus porttitor vel. Maecenas non ligula risus. Aenean non lectus id augue dictum cursus.
 		</p>
 	</div>
 	<!-- end main_panel -->

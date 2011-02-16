@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>Social Network for Clubs and Socs - 'Oh, so they have Internet on computers now!'</title>
-
-
-<link rel="stylesheet" href= "<?php echo base_url(); ?>css/reset.css" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/text.css" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/font.css" type="text/css" charset="utf-8">
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/960_24_col.css" />
-<!--<link rel="stylesheet" href="<?php echo base_url(); ?>system/application/css/demo.css" />-->
-
-<link rel="stylesheet/less" href="<?php echo base_url(); ?>css/style.less" /> 
-<script src="http://lesscss.googlecode.com/files/less-1.0.18.min.js"></script>
-
-
-</head>
-<body>
-	<div id="top_banner"> 
-			<div class="container_24">
-				<div class="grid_3">
-				<h1>
-					Coterie
-				</h1>
-				</div>
-				<div id="banner_right" class="grid_10">Home &nbsp;&nbsp; Clubs &nbsp;&nbsp; My Club &nbsp;&nbsp; Account</div>
-
-			</div>
-	</div>
-	<!-- End top_banner -->
-
-<div id="main_container" class="container_24">
-
-	<div id="left_panel" class="grid_7">
+<div id="left_panel" class="grid_7">
 		<h6 class="left-marg">
 			Left panel.
 		</h6>
@@ -45,15 +11,13 @@
 		<h6 class="left-marg">
 			Main panel.
 		</h6>
-
+		<p>
+			<a href="<?php echo base_url(); ?>index.php/login">Login</a> | 
+			<a href="<?php echo base_url(); ?>index.php/register">Register</a> | 
+			<a href="<?php echo base_url(); ?>index.php/facebook_test">Facebook Test</a>
+		</p>
 		<p>
 Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus eleifend facilisis. Morbi et justo quis dui aliquam placerat. Quisque congue, enim et ullamcorper dignissim, nisi odio viverra turpis, eu congue mi eros non libero. Maecenas non sapien interdum erat molestie egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at viverra tellus. Cras libero justo, tristique sed congue at, lacinia in nulla. Morbi tempor faucibus eros, vel vulputate metus porttitor vel. Maecenas non ligula risus. Aenean non lectus id augue dictum cursus.
 		</p>
 	</div>
 	<!-- end main_panel -->
-	<div class="clear"></div>
-
-</div>
-<!-- end .container_24 -->
-</body>
-</html>

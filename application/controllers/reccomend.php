@@ -9,7 +9,8 @@ class Reccomend extends CI_Controller {
 
 	function index()
 	{
-		$this->load->view('reccomend_view');
+		$data['main_content'] = 'reccomend_view';
+		$this->load->view('/includes/template', $data);
 	}
 }
 

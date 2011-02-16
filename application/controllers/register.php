@@ -9,7 +9,9 @@ class Register extends CI_Controller {
 
 	function index()
 	{
-		$this->load->view('register_view');
+
+		$data['main_content'] = 'register_view';
+		$this->load->view('/includes/template', $data);
 	}
 }
 

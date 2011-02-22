@@ -73,6 +73,8 @@ h1{
 #main_container {  
 /* References the variable we created above. */  
     background: white;
+	background-image: url('../images/bg_main.png');
+	background-repeat:repeat-y;
 	padding-top:@general_padding;
 	padding-bottom:@general_padding;
 	margin-top:@general_padding;
@@ -81,7 +83,7 @@ h1{
 
 	
 	p{
-		padding:@general_padding;
+		padding: 0px 10px 0px 10px;
 	}  
 /* Calls the .rounded mix-in (function) that we created, and overrides the default value. */  
     .rounded();   
@@ -92,7 +94,12 @@ h1{
     } 
 	
 	#left_panel{
-		border-right: 1px dashed @primary_green;
+		
+	}
+	
+	#main_panel{
+		border-left: 1px dashed @primary_green;
+		height:100%;
 	}
 	
 }  

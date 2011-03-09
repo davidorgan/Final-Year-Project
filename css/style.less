@@ -26,6 +26,16 @@ the @ symbol.
   background: -moz-linear-gradient(100% 100% 90deg, @color1, @color2);
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@color2), to(@color1));
 }
+
+.button(){
+		border:none;
+		background-color: @primary_green;
+		padding: 0.2em 1.5em 0.2em 1.5em;
+		color: white;
+		font-family:'CantarellRegular', Arial, sans-serif;
+		font-size: 16px;
+		 .rounded(); 
+}
   
   
 body{
@@ -65,12 +75,20 @@ h1{
 		color:@blue_highlight;
 	}
 	
+	a{
+		color:@blue_highlight;
+		text-decoration:none;
+	}
+	a:hover{
+		text-decoration: underline;
+	}
+	
 }
 
 
 
 	
-#main_container {  
+#main_container, #login_container {  
 /* References the variable we created above. */  
     background: white;
 	background-image: url('../images/bg_main.png');
@@ -103,3 +121,45 @@ h1{
 	}
 	
 }  
+
+#login_container{
+	width:300px;
+	margin:0 auto;
+	padding: @general_padding;
+	margin-top:100px;
+	
+	input,a{
+		display:block;
+		padding:0.2em;
+		margin-top:1em;
+	}
+	
+	input[type='text'],input[type='password']
+	{
+		width:290px;
+	}
+	
+	input[type='submit'], a{
+		.button();
+		float:left;
+		text-decoration:none;
+	}
+	
+	input[type='submit']:hover, a:hover{
+		background-color:@secondary_green;
+		cursor:pointer;
+
+	}
+	
+	a{
+		margin-left:10px;
+	}
+	
+	h1{
+		margin-left:0px;
+		padding-left:0px;
+	}
+	
+	
+}
+

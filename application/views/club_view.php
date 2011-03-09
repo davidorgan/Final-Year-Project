@@ -13,10 +13,22 @@
 	</div>
 	<!-- end left_panel -->
 	<div id="main_panel" class="grid_16">
-		<h6 class='left-marg'>Main Pannel</h6>
-		<p>
-			Quis purus vestibulum, pellentesque vehicula ac, vehicula in ipsum ac odio vehicula, eros vitae a ac scelerisque phasellus. Aenean platea est vitae vivamus mi, elit orci ligula dictum rhoncus donec taciti, enim ac quisque volutpat feugiat justo. Hendrerit hymenaeos vitae ligula mauris condimentum, amet integer ut leo id, in do vestibulum. Fusce viverra sunt mattis, vel eros et erat pellentesque luctus. Feugiat urna, vivamus dictum fusce pulvinar, pellentesque dolor fermentum leo nullam eros, elementum et, eget quis.
-		</p>
+
+	<div id="contact_form">
+				
+				<h6 class="left-marg">Status!</h6>
+				
+			    <?php 
+				echo form_open('contact/submit', 'class="left-marg"')."<br />";
+				$data = array('name' => 'message', 'cols' => 55, 'rows' => 3);
+				echo form_textarea($data, 'Message', 'id="message"')."<br />";
+				echo form_submit('submit', 'Submit', 'id="submit"')."<br />";
+				echo form_close();
+				?>
+			
+			
+			</div>
+			<div id='thank_msg'></div>
 
 	</div>
 	<!-- end main_panel -->

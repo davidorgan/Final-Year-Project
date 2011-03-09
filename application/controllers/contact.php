@@ -8,7 +8,7 @@ class Contact extends CI_Controller {
 	
 	function index() {
 		
-		$data['main_content'] = 'contact_form';
+		$data['main_content'] = 'club_view';
 		$this->load->view('includes/template', $data);
 		
 	}

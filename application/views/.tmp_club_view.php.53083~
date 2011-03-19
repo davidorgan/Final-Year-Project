@@ -1,0 +1,58 @@
+<div id="left_panel" class="grid_7">
+	<?php foreach($query->result() as $row): ?>
+				<h1 ><?php echo $row->name; ?></h1>
+				<p>
+				Description:<?php echo $row->desc; ?><br />
+				Admin: <?php echo $row->admin; ?> <br />
+				Email: <?php echo $row->email; ?>
+				</p>
+				
+				
+	<?php endforeach; ?>
+	<div id="name"></div>
+		      <div id="fb-root"></div>
+      <script src="http://connect.facebook.net/en_US/all.js"></script>
+      <script>
+         FB.init({ 
+            appId:'182794741757028', cookie:true, 
+            status:true, xfbml:true 
+         });
+
+		 FB.api('/me', function(response) {
+                     var query = FB.Data.query('select name, interests, sex, pic_square from user where uid={0}', response.id);
+                     query.wait(function(rows) {
+ 
+                       document.getElementById('name').innerHTML =
+					   'Interests!: ' + rows[0].interests + "<br />" +
+					   'sex: ' + rows[0].sex + "<br />" +
+                         'Your name: ' + rows[0].name + "<br />" +
+                         '<img src="' + rows[0].pic_square + '" alt="" />' + "<br />";
+                     });
+                });
+				
+				
+
+      </script>
+
+	</div>
+	<!-- end left_panel -->
+	<div id="main_panel" class="grid_16">
+
+	<div id="contact_form">
+				
+				<h6 class="left-marg">Status!</h6>
+				
+			    <?php 
+				echo form_open('contact/submit', 'class="left-marg"')."<br />";
+				$data = array('name' => 'message', 'cols' => 55, 'rows' => 3);
+				echo form_textarea($data, 'Message', 'id="message"')."<br />";
+				echo form_submit('submit', 'Submit', 'id="submit"')."<br />";
+				echo form_close();
+				?>
+			
+			
+			</div>
+			<div id='thank_msg'></div>
+
+	</div>
+	<!-- end main_panel -->

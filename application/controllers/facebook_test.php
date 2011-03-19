@@ -28,6 +28,18 @@
 
 			$this->load->vars('opengraph', $opengraph);
 			$this->load->view('facebook_view');
+			
+			// Example call structure:
+			// $this->facebook->call($http_method, $request_uri, $params);
+ 
+			$elliots_band = $this->facebook->call('get', 'david.sorgan?access_token=2227470867|2.er8xb_cywezjQ83m6QQo7Q__.3600.1299790800-708736884|28IczEkYBWHGROGfUAtVVy1rdMM');
+			var_dump($elliots_band);
+ 
+// Basic post request requiring addition parameteters
+// $attend = $this->facebook->call('post', $event_id.'/attending');
+ 
+// Post request requiring additional parameters
+// $status = $this->facebook->call('post', 'me/feed', array('message' => 'Elliot Haughin just my code a Facebook orgasm'));
 		}
 		
 		function login()

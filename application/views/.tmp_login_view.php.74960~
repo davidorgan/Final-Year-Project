@@ -25,10 +25,31 @@
 					Coterie
 				</h1>
 				</div>
-				<div id="banner_right" class="grid_10">Home &nbsp;&nbsp; Clubs &nbsp;&nbsp; My Club &nbsp;&nbsp; Account</div>
+				<div id="banner_right" class="grid_10"><?php echo anchor('', 'Home', 'title="Home"'); ?> &nbsp;&nbsp; <?php echo anchor('/browse', 'Browse', 'title="Browse"'); ?> &nbsp;&nbsp; <?php if($this->session->userdata('is_logged_in') == 'true'){ echo anchor('club/profile/'.$this->session->userdata('id'), 'My Club', 'title="My Club"')."&nbsp;&nbsp; Account";} ?> </div>
 
 			</div>
 	</div>
 	<!-- End top_banner -->
 
-<div id="main_container" class="container_24">
+<div id="login_container">
+
+	
+		<h1>
+			Login
+		</h1>
+	  	
+		<?php
+			echo form_open('login/validate');
+			echo form_input('username','Username');
+			echo form_password('password','Password');
+			echo form_submit('submit', 'Login');
+			echo anchor('addClub','Create Club');
+		?>
+	  
+	<div class="clear"></div>
+</div>
+<!-- end .container_24 -->
+
+</body>
+</html>
+	

@@ -25,8 +25,15 @@
 					Coterie
 				</h1>
 				</div>
-				<div id="banner_right" class="grid_10"><?php echo anchor('', 'Home', 'title="Home"'); ?> &nbsp;&nbsp; <?php echo anchor('/browse', 'Browse', 'title="Browse"'); ?> &nbsp;&nbsp; <?php echo anchor('club/profile/2', 'My Club', 'title="My Club"'); ?> &nbsp;&nbsp; Account</div>
-
+				<div id="banner_right" class="grid_10"><?php echo anchor('', 'Home', 'title="Home"'); ?> &nbsp;&nbsp; <?php echo anchor('/club/browse', 'Browse', 'title="Browse"'); ?> &nbsp;&nbsp; <?php if($this->session->userdata('is_logged_in') == 'true'){ echo anchor('club/profile/'.$this->session->userdata('id'), 'My Club', 'title="My Club"');} ?> </div>
+				<div id="banner_right_float" class="grid_6">
+					<?php if($this->session->userdata('is_logged_in') != 'true'){?>
+					<a href="<?php echo base_url(); ?>index.php/login">Login</a>
+					<?php }else{ ?>
+					<a href="<?php echo base_url(); ?>index.php/account/<?php echo $this->session->userdata('id'); ?>">Account</a>
+					 | <a href="<?php echo base_url(); ?>index.php/logout">Logout</a>
+					<?php } ?>
+				</div>
 			</div>
 	</div>
 	<!-- End top_banner -->

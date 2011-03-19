@@ -43,7 +43,7 @@
 			echo form_input('username','Username');
 			echo form_password('password','Password');
 			echo form_submit('submit', 'Login');
-			echo anchor('register','Create Account');
+			echo anchor('addClub','Create Club');
 		?>
 	  
 	<div class="clear"></div>

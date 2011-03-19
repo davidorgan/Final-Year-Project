@@ -33,7 +33,7 @@ elseif ($_SERVER['HTTP_HOST'] == 'danu2.it.nuigalway.ie')
 | variable so that it is blank.
 |
 */
-$config['index_page'] = "index.php";
+$config['index_page'] = "";
 
 /*
 |--------------------------------------------------------------------------

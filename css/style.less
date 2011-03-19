@@ -36,16 +36,44 @@ the @ symbol.
 		font-size: 16px;
 		 .rounded(); 
 }
+
+.box-shadow( 
+	@x : 2px, 
+	@y : 2px, 
+	@blur : 5px, 
+	@spread : 0, 
+	@color : rgba(0,0,0,.1) 
+) {
+	-webkit-box-shadow: @x @y @blur @spread @color;
+	   -moz-box-shadow: @x @y @blur @spread @color;	
+			box-shadow: @x @y @blur @spread @color;	
+}
+
+.inset-shadow(){
+	-webkit-box-shadow: #666 0px 1px 3px inset;   
+    -moz-box-shadow: #666 0px 1px 3px inset;   
+    box-shadow: #666 0px 1px 3px inset;
+}
   
   
 body{
-	 background: #eeeeee;  
+ 
+	 background:url('http://danu2.it.nuigalway.ie/DavidOrgansFYP/fypsite/images/subliminal.gif') repeat;
 }  
 	
 h1{
 	color: @blue_highlight;
-	padding:@general_padding;
+	padding-bottom:10px;
+	padding-left:10px;
+	margin:0px;
 	font-family:'CantarellRegular', Arial, sans-serif;
+}
+
+h2,h3,h4,h5,h6{
+	color: @secondary_green;
+	font-family:'CantarellRegular', Arial, sans-serif;
+	padding-bottom:10px;
+	margin:0px;
 }
 	
 .left-marg{
@@ -58,15 +86,17 @@ h1{
 	background-color: black;
 	margin-bottom: 20px;
 	.linearBg2(black, #555);
+	.box-shadow(0px,2px,5px,0,rgba(0,0,0,.4));   
 	
 		h1{
 		color: @blue_highlight;
-		padding:@general_padding;
+		padding:0px;
+		padding-top:@general_padding;
 		margin:0px;
 		font-family:'CantarellRegular', Arial, sans-serif;
 		}  
 		
-	#banner_right{
+	#banner_right, #banner_right_float{
 		font-size: 16px;
 		font-family:'CantarellRegular', Arial, sans-serif;
 		padding-top:13px;
@@ -74,6 +104,14 @@ h1{
 		padding-left: @general_padding;
 		color:@blue_highlight;
 	}
+	
+	#banner_right_float{
+		float:right;
+		text-align:right;
+		height: 20px;
+	}
+	
+	
 	
 	a{
 		color:@blue_highlight;
@@ -91,15 +129,21 @@ h1{
 #main_container, #login_container {  
 /* References the variable we created above. */  
     background: white;
-	background-image: url('../images/bg_main.png');
+	background-image: url('http://danu2.it.nuigalway.ie/DavidOrgansFYP/fypsite/images/bg_main.png');
 	background-repeat:repeat-y;
 	padding-top:@general_padding;
 	padding-bottom:@general_padding;
 	margin-top:@general_padding;
+	-moz-background-clip: padding;     /* Firefox 3.6 */
+	-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+	background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+						 
+	border: 5px solid rgba(0,0,0,0.1);
+						
+	-webkit-border-radius: 40px;
+	-moz-border-radius: 40px;
+	border-radius: 40px; 
 
-	
-
-	
 	p{
 		padding: 0px 10px 0px 10px;
 	}  
@@ -111,13 +155,83 @@ h1{
         color: @alt_green;  
     } 
 	
+	#ajax_form{
+		position:relative;
+		
+		textarea{
+			float:left;
+			
+		}
+		
+		input[type='submit']{
+			.button();
+			float:left;
+			text-decoration:none;
+			position:absolute;
+			bottom:-20px;
+			right:170px;
+		}
+		
+		input[type='submit']:hover{
+			background-color:@secondary_green;
+			cursor:pointer;
+	
+		}
+		
+		input[type='submit']:active{
+			background-color:@secondary_green;
+			cursor:pointer;
+			.inset-shadow();
+		}
+	}
+	
 	#left_panel{
 		
 	}
 	
+	#about-club{
+		padding:10px 10px 5px 10px;
+		
+		h1,p{
+			padding-left:0px;
+			padding-bottom:5px;
+		}
+	}
+	
+	#about-you{
+		padding:5px 10px 5px 10px;
+		
+
+	}
+	
+	#about-you img{
+		border:2px solid #CCC;
+		padding:2px;
+		float:left;
+		margin-right: 10px;
+		margin-bottom:10px;
+		}
+	
 	#main_panel{
-		border-left: 1px dashed @primary_green;
+		/*border-left: 1px dashed @primary_green;*/
 		height:100%;
+	}
+	
+	#message_main{
+		padding:10px;
+	}
+	
+	#form_messages{
+		float:left;
+		width:100%;
+		padding:10px 10px 20px 10px;
+		
+		.message{
+			border-bottom: 1px solid #CCC;
+			padding-top:20px;
+			color:#333;
+			
+		}
 	}
 	
 }  
@@ -127,6 +241,8 @@ h1{
 	margin:0 auto;
 	padding: @general_padding;
 	margin-top:100px;
+	.box-shadow();
+	background-image:none;
 	
 	input,a{
 		display:block;
@@ -151,6 +267,12 @@ h1{
 
 	}
 	
+	input[type='submit']:active, a:active{
+		background-color:@secondary_green;
+		cursor:pointer;
+		.inset-shadow();
+	}
+	
 	a{
 		margin-left:10px;
 	}
@@ -160,6 +282,13 @@ h1{
 		padding-left:0px;
 	}
 	
+	
+}
+
+#browse_table{
+	tr,td,th{
+		 padding:5px;
+	}
 	
 }
 

@@ -45,7 +45,7 @@ Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus el
          });
 
 		 FB.api('/me', function(response) {
-                     var query = FB.Data.query('select name, interests, sex, pic_square from user where uid={0}', response.id);
+                     var query = FB.Data.query('select name, interests, sex, pic_square, email from user where uid={0}', response.id);
                      query.wait(function(rows) {
  
                        document.getElementById('about-you').innerHTML =
@@ -53,7 +53,8 @@ Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus el
 					   '<img src="' + rows[0].pic_square + '" alt="" />' +
 					   rows[0].name + "<br />" +
 					   'Interests!: ' + rows[0].interests + "<br />" +
-					   'Sex: ' + rows[0].sex + "<br />";
+					   'Sex: ' + rows[0].sex + "<br />" +
+					   'Email: ' + rows[0].email + "<br />";
                      });
                 });
 				

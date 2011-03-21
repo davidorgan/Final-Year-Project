@@ -16,12 +16,25 @@
 	<div id="main_panel" class="grid_16">
 
 
-		<h1>Super Pagination with CodeIgniter</h1>
+		<h1>Popular Clubs</h1>
 		<div id='browse_table'>
 			
-		<?php $this->table->set_heading(array('Name', 'Description', 'Number of Members')); echo $this->table->generate($records); ?>
+		<?php foreach($records->result() as $record): ?>
+			<a href="http://danu2.it.nuigalway.ie/DavidOrgansFYP/fypsite/club/profile/<?php echo $record->id; ?>">
+			<div class="club_info">
+				<h6><?php echo $record->name; ?></h6>
+				<span>Number of Members: <?php echo $record->no_members; ?></span><br />
+				<span>Description: <?php echo $record->desc; ?></span>
+			</div>
+			</a>
+		<?php endforeach; ?>
+			
+		
 		</div>
+
 		<?php echo $this->pagination->create_links(); ?>
+
+
 
 
 	</div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -11,13 +11,48 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/960_24_col.css" />
 <!--<link rel="stylesheet" href="<?php echo base_url(); ?>system/application/css/demo.css" />-->
 
+
+<script type="text/javascript" src="<?php echo base_url(); ?>fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>fancybox/jquery.easing-1.3.pack.js"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
 <link rel="stylesheet/less" href="<?php echo base_url(); ?>css/style.less" /> 
 <script src="http://lesscss.googlecode.com/files/less-1.0.18.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>	
+
 <script language="javascript" src="<?php echo base_url(); ?>js/ajax_post.js"></script>
 
 
+
 </head>
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+	/* This is basic - uses default settings */
+	
+	$("a#single_image").fancybox();
+	
+	/* Using custom settings */
+	
+	$("a#inline").fancybox({
+		'hideOnContentClick': true
+	});
+	
+
+	
+	/* Apply fancybox to multiple items */
+	
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+	
+});
+</script>
 <body>
 	<div id="top_banner"> 
 			<div class="container_24">

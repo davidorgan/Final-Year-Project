@@ -238,23 +238,6 @@ h2,h3,h4,h5,h6{
 		}
 	}
 	
-	#about-you{
-		padding:5px 10px 5px 10px;
-		
-
-	}
-	
-	#about-you img{
-		border:2px solid #CCC;
-		padding:2px;
-		float:left;
-		margin-right: 10px;
-		margin-bottom:10px;
-		}
-		
-		#about-you img:hover{
-			border:2px solid @secondary_green;
-			}
 	
 	#main_panel{
 		/*border-left: 1px dashed @primary_green;*/
@@ -276,6 +259,18 @@ h2,h3,h4,h5,h6{
 			border-bottom: 1px solid #CCC;
 			padding-top:20px;
 			color:#333;
+			
+			.author{
+				font-size:10px;
+				color:#AAA;
+			}
+			
+			img{
+				float:left;
+				padding:3px;
+				border:2px solid #ccc;
+				margin:5px;
+			}
 			
 		}
 	}
@@ -379,9 +374,18 @@ h2,h3,h4,h5,h6{
 	}
 }
 
+#join_form{
+	input[type='hidden']{
+		display:none;
+		
+	}
+	padding:0px 10px 10px 15px;
+}
+
 #join{
 	.button();
-
+	margin-left:10px;
+		
 }
 
 #join:hover{

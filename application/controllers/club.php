@@ -16,10 +16,35 @@ class Club extends CI_Controller {
 	
 	function profile()
 	{
+		$this->load->library('pagination');
+		
 		$this->db->where('id', $this->uri->segment(3));
 		$data['query'] = $this->db->get('clubs');
 		
-	  	$data['rows'] = $this->message_model->get_latest($this->uri->segment(3));
+	  	//$data['rows'] = $this->message_model->get_latest($this->uri->segment(3));
+	  	
+
+
+		
+		//$this->table->set_heading('Id', 'The Title', 'The Content');
+		
+		$config['base_url'] = 'http://danu2.it.nuigalway.ie/DavidOrgansFYP/fypsite/club/profile/'.$this->uri->segment(3);
+		$config['total_rows'] = $this->db->query('SELECT id FROM messages WHERE club_id ="'.$this->uri->segment(3).'"')->num_rows();
+		$config['per_page'] = 10;
+		$config['num_links'] = 20;
+		$config['uri_segment'] = 4;
+		$config['full_tag_open'] = '<div class="pagination">';
+		$config['full_tag_close'] = '</div>';
+		$config['cur_tag_open'] = '<span class="curr_page">';
+		$config['cur_tag_close'] = '</span>';
+		
+		
+		$offset = (int) $this->uri->segment(4, 0);
+		$club_id = (int) $this->uri->segment(3);
+		
+		$this->pagination->initialize($config);
+	
+	  	$data['records'] = $this->message_model->get_messages($club_id,$config['per_page'],$offset);
 		
 
 		$data['main_content'] = 'club_view';
@@ -31,7 +56,7 @@ class Club extends CI_Controller {
 	function browse()
 	{
 		$this->load->library('pagination');
-		$this->load->library('table');
+
 		
 		//$this->table->set_heading('Id', 'The Title', 'The Content');
 		
@@ -46,10 +71,11 @@ class Club extends CI_Controller {
 		
 		$this->pagination->initialize($config);
 		
-		$this->db->select('id,name, desc, no_members');
+		$this->db->select('id ,name, desc, no_members');
 		$this->db->order_by("no_members", "desc"); 
 		$data['records'] = $this->db->get('clubs', $config['per_page'], $this->uri->segment(3));
 		
+
 		
 		$data['main_content'] = 'browse_view';
 		$this->load->view('/includes/template', $data);
@@ -65,19 +91,52 @@ class Club extends CI_Controller {
 	      
 	    
 	    }else{
-	    	
-	    $this->user_id = $_POST['user_id']; 
-        $this->club_id = $_POST['club_id'];
-        $this->message = $_POST['message'];
-
-	   
-	      $this->message_model->add($this);
-	      $message = $_POST['message'];
-	      $bg_color = "#FFA";
+		    $this->load->model('user_model');
+		    	
+		    $this->user_id = $_POST['ajax_user_id']; 
+	        $this->club_id = $_POST['club_id'];
+	        $this->message = $_POST['message'];
+	        
+	        $user_id = $_POST['ajax_user_id'];
+		    $name = $_POST['ajax_name'];
+		    $email = $_POST['ajax_email'];
+		    $pic_url = $_POST['ajax_img'];
+	
+	        
+	        if($this->user_model->user_exists($this->user_id))
+	        {	   
+		      	$this->message_model->add($this);
+		      
+		      	$message = $_POST['message'];
+		    	$bg_color = "#FFA";
+		    
+		    	$output = '{ "message": "'.$message.'", "bg_color": "'.$bg_color.'", "name": "'.$name.'" , "img": "'.$pic_url.'" }';
+		    	echo $output;
+		    }
+		    else if(is_numeric($user_id)){
+		    	$this->user_model->create_user($user_id,$name,$email,$pic_url);    	
+		    	$this->message_model->add($this);
+		    	
+		    	$message = $_POST['message'];
+		    	$bg_color = "#FFA";
+		    
+		   		$output = '{ "message": "'.$message.'", "bg_color": "'.$bg_color.'", "name": "'.$name.'" , "img": "'.$pic_url.'" }';
+		    	echo $output;
+		    }
+		    else{
+		    	
+		    	$name = "Error";
+		    	$pic_url = "http://www.tutorialized.com/upload/(2006.05.25-03:43:31)50x50.png";
+		    	$message = "You must be logged in to leave a comment";
+		     	$bg_color = "#FFA";
+		    
+		   		$output = '{ "message": "'.$message.'", "bg_color": "'.$bg_color.'", "name": "'.$name.'" , "img": "'.$pic_url.'" }';
+		    	echo $output;
+		    	
+		    }
 	    }
 	    
-	    $output = '{ "message": "'.$message.'", "bg_color": "'.$bg_color.'" }';
-	    echo $output;
+
 	  }
 	  
 	  function get_messages()
@@ -136,16 +195,9 @@ class Club extends CI_Controller {
 	  			}
 	  		}
 	  		else{
-				
-				if($this->user_model->create_user($user_id,$name,$email,$pic_url))
-				{
-					$this->user_model->create_membership($user_id, $club_id);
-				} 
-				else{
-					$data['error'] = "There was a problem, try again later!";
-				}
-	  			
-	  		}
+				$query = $this->user_model->create_user($user_id,$name,$email,$pic_url);
+				$this->user_model->create_membership($user_id, $club_id);
+			}
 	  		
 	  		redirect('club/profile/'.$club_id);
 	  	}

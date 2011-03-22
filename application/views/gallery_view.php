@@ -60,14 +60,17 @@
 			
 			<div class="clear"></div>
 		</div>
-		<div id="upload">
-						<?php
-			echo form_open_multipart('club/gallery/'.$this->uri->segment(3)); 
-			echo form_upload('userfile');
-			echo form_submit('upload', 'Upload');
-			echo form_close();
-			?>
-		</div>
+		
+		<?php if($this->session->userdata('is_logged_in') == true &&  $this->session->userdata('id') == $this->uri->segment(3)){?>
+			<div id="upload">
+							<?php
+				echo form_open_multipart('club/gallery/'.$this->uri->segment(3)); 
+				echo form_upload('userfile');
+				echo form_submit('upload', 'Upload');
+				echo form_close();
+				?>
+			</div>
+		<?php } ?>
 	</div>
 	
 

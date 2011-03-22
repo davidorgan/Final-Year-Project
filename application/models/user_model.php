@@ -45,7 +45,20 @@
 				   'club_id' => $club_id 
 				);
 				
-				$this->db->insert('memberships', $data);	
+				$this->db->insert('memberships', $data);
+
+						$sql = "SELECT COUNT( club_id ) as num FROM memberships WHERE club_id = ?";
+						$query = $this->db->query($sql,$club_id);
+
+						foreach($query->result() as $row){
+							$count = $row->num;
+						}
+						
+						$sql = "UPDATE clubs SET `no_members`= ? WHERE id = ?";
+						
+						$query = $this->db->query($sql,array($count, $club_id));
+
+				
 	    }
 	    
 	    function create_user($user_id, $name, $email, $pic_url)

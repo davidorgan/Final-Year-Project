@@ -26,4 +26,11 @@
 			$query = $this->db->get('clubs');
 			return $query;
 		}
+		
+		function get_no_members($club_id){
+			$sql = "SELECT COUNT( club_id ) as num FROM memberships WHERE club_id = ?";
+			$query = $this->db->query($sql,$club_id);
+
+			return $count;
+		}
 	}

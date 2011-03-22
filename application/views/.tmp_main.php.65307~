@@ -63,7 +63,7 @@ Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus el
       </script>
 	  
 	  
-      <fb:login-button autologoutlink="true" perms="email,user_checkins,user_activities,user_interests"></fb:login-button>
+      <fb:login-button autologoutlink="true" perms="email,user_checkins,user_activities,user_interests">Login with Facebook</fb:login-button>
 
 	</div>
 	<!-- end main_panel -->

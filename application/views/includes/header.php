@@ -12,11 +12,6 @@
 <!--<link rel="stylesheet" href="<?php echo base_url(); ?>system/application/css/demo.css" />-->
 
 
-<script type="text/javascript" src="<?php echo base_url(); ?>fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>fancybox/jquery.easing-1.3.pack.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-<link rel="stylesheet" href="<?php echo base_url(); ?>fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-
 <link rel="stylesheet/less" href="<?php echo base_url(); ?>css/style.less" /> 
 <script src="http://lesscss.googlecode.com/files/less-1.0.18.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>	
@@ -62,10 +57,11 @@
 				</h1>
 				</div>
 				<div id="banner_right" class="grid_10"><?php echo anchor('', 'Home', 'title="Home"'); ?> &nbsp;&nbsp; <?php echo anchor('/club/browse', 'Browse', 'title="Browse"'); ?> &nbsp;&nbsp; <?php if($this->session->userdata('is_logged_in') == 'true'){ echo anchor('club/profile/'.$this->session->userdata('id'), 'My Club', 'title="My Club"');} ?> </div>
-				<div id="banner_right_float" class="grid_6">
+				<div id="banner_right_float" class="grid_9">
 					<?php if($this->session->userdata('is_logged_in') != 'true'){?>
 					<a href="<?php echo base_url(); ?>index.php/login">Login</a>
 					<?php }else{ ?>
+					<span>Welcome <?php echo $this->session->userdata('full_name'); ?>: </span>
 					<a href="<?php echo base_url(); ?>index.php/account/<?php echo $this->session->userdata('id'); ?>">Account</a>
 					 | <a href="<?php echo base_url(); ?>index.php/logout">Logout</a>
 					<?php } ?>

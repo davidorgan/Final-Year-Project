@@ -43,17 +43,10 @@
                      var query = FB.Data.query('select uid,name, interests, sex, pic_square, email from user where uid={0}', response.id);
                      query.wait(function(rows) {
                        document.getElementById('about-you').innerHTML =
-					   '<h4>About You:</h4>' +
-					    'UID!: <span id="uid_temp">' + rows[0].uid + "</span><br />" +
-					   '<img src="' + rows[0].pic_square + '" alt="" />' +
-					   rows[0].name + "<br />" +
-					   'Interests!: ' + rows[0].interests + "<br />" +
-					   'Sex: ' + rows[0].sex + "<br />" +
-					    'Email: ' + rows[0].email + "<br />"+
-						'<input value="' + rows[0].uid + '" type="text" name="uid" id="uid" />'+ "<br />"+
-						 '<input value="' + rows[0].name + '" type="text" name="u_name" id="u_name" />'+ "<br />"+
-						  '<input value="' + rows[0].pic_square + '" type="text" name="u_pic" id="u_pic" />'+ "<br />"+
-						 '<input value="' + rows[0].email + '" type="text" name="u_email" id="u_email" />';;
+						'<input value="' + rows[0].uid + '" type="hidden" name="uid" id="uid" />'+
+						 '<input value="' + rows[0].name + '" type="hidden" name="u_name" id="u_name" />'+
+						  '<input value="' + rows[0].pic_square + '" type="hidden" name="u_pic" id="u_pic" />'+
+						 '<input value="' + rows[0].email + '" type="hidden" name="u_email" id="u_email" />';
 						
                      });
 					
@@ -63,8 +56,8 @@
       </script>
 
 				<?php
-			echo form_input('club_id',$this->uri->segment(3))."<br />";
-			echo form_submit('join', 'Join this club', 'id="join"')."<br />";
+			echo form_hidden('club_id',$this->uri->segment(3));
+			echo form_submit('join', 'Join this club', 'id="join"');
 				echo form_close();
 			?>
 		</div>
@@ -91,7 +84,10 @@
                      var query = FB.Data.query('select uid,name, interests, sex, pic_square, email from user where uid={0}', response.id);
                      query.wait(function(rows) {
                        document.getElementById('message_uid').innerHTML =
-						'<input value="' + rows[0].uid + '" type="hidden" name="user_id" id="user_id" />';
+						'<input value="' + rows[0].uid + '" type="hidden" name="ajax_user_id" id="ajax_user_id" />'+
+						 '<input value="' + rows[0].name + '" type="hidden" name="ajax_name" id="ajax_name" />'+
+						  '<input value="' + rows[0].pic_square + '" type="hidden" name="ajax_img" id="ajax_img" />'+
+						 '<input value="' + rows[0].email + '" type="hidden" name="ajax_email" id="ajax_email" />';
 						
                      });
 					
@@ -111,16 +107,32 @@
 		      </form>
 			  
 			  <div id="form_messages">
-			  	<?php if($rows != null): ?>
-				  <?php foreach($rows as $r): ?>
-				  <div class="message"><?php echo $r->message; ?></div>
+			  	<?php if($records != null): ?>
+				  <?php foreach($records as $r): ?>
+				  
+				 <div class="message">
+				  	<?php if($r->img != null || $r->img != "") :?>
+				  	<img src="<?php echo $r->img; ?>" />
+					<?php else: ?>
+					<img src="http://b.static.ak.fbcdn.net/rsrc.php/v1/yo/r/UlIqmHJn-SK.gif" />
+					<?php endif; ?>
+					
+					<?php if($r->u_name != null || $r->u_name != "") :?>
+				  	<span class="author">Sent by: <?php echo $r->u_name; ?></span><br />
+					<?php else: ?>
+						<span class="author">Sent by: Unkown</span><br />
+					<?php endif; ?>
+					
+				  	<?php echo $r->msg; ?><br />
+					<div class="clear"></div>
+				</div>
 				  <?php endforeach; ?>
 				 <?php else: ?>
 				 	No comments have been added to the message board!
 				 <?php endif; ?>
 			  </div>
 			  
-			  
+			  <?php echo $this->pagination->create_links(); ?>
 
 	</div>
 

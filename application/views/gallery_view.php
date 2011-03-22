@@ -47,7 +47,7 @@
 				foreach($images as $image): ?>
 				<div class="thumb">
 					<?php if($image['url'] != '') : ?>
-					<a class="group" rel="images" href="<?php echo $image['url']; ?>" rel="lightbox">
+					<a class="group" rel="prettyPhoto['gallery']" href="<?php echo $image['url']; ?>">
 						<img src="<?php echo $image['thumb_url']; ?>"/>
 					</a>
 					<?php endif; ?>
@@ -76,5 +76,9 @@
 
 	</div>
 	<!-- end main_panel -->
-
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$("a[rel^='prettyPhoto']").prettyPhoto({theme: 'facebook',slideshow:5000, autoplay_slideshow:true});
+	});
+</script>
 	

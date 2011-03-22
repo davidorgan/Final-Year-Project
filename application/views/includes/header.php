@@ -14,40 +14,15 @@
 
 <link rel="stylesheet/less" href="<?php echo base_url(); ?>css/style.less" /> 
 <script src="http://lesscss.googlecode.com/files/less-1.0.18.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>	
+<script src="<?php echo base_url(); ?>js/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+<script src="<?php echo base_url(); ?>js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
 
 <script language="javascript" src="<?php echo base_url(); ?>js/ajax_post.js"></script>
 
 
 
 </head>
-	<script type="text/javascript">
-	$(document).ready(function() {
-
-	/* This is basic - uses default settings */
-	
-	$("a#single_image").fancybox();
-	
-	/* Using custom settings */
-	
-	$("a#inline").fancybox({
-		'hideOnContentClick': true
-	});
-	
-
-	
-	/* Apply fancybox to multiple items */
-	
-	$("a.group").fancybox({
-		'transitionIn'	:	'elastic',
-		'transitionOut'	:	'elastic',
-		'speedIn'		:	600, 
-		'speedOut'		:	200, 
-		'overlayShow'	:	false
-	});
-	
-});
-</script>
 <body>
 	<div id="top_banner"> 
 			<div class="container_24">

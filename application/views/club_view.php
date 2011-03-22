@@ -118,7 +118,7 @@
 					<?php endif; ?>
 					
 					<?php if($r->u_name != null || $r->u_name != "") :?>
-				  	<span class="author">Sent by: <?php echo $r->u_name; ?></span><br />
+				  	<span class="author"><strong><?php echo $r->u_name; ?></strong> wrote:</span><br />
 					<?php else: ?>
 						<span class="author">Sent by: Unkown</span><br />
 					<?php endif; ?>

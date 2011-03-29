@@ -121,10 +121,8 @@
 				<div id="banner_right" class="grid_10"><?php echo anchor('', 'Home', 'title="Home"'); ?> &nbsp;&nbsp; <?php echo anchor('/club/browse', 'Browse', 'title="Browse"'); ?> &nbsp;&nbsp; <?php if($this->session->userdata('is_logged_in') == 'true'){ echo anchor('club/profile/'.$this->session->userdata('id'), 'My Club', 'title="My Club"');} ?> </div>
 				<div id="banner_right_float" class="grid_9">
 					<?php if($this->session->userdata('is_logged_in') != 'true'){?>
-					 <fb:login-button autologoutlink="true" perms="user_likes,friends_likes, email,user_checkins,user_activities,user_interests, friends_interests"></fb:login-button> | 
-					<a href="<?php echo base_url(); ?>index.php/login">Club Login</a>
+					<a href="<?php echo base_url(); ?>index.php/login">Login</a>
 					<?php }else{ ?>
-					 <fb:login-button autologoutlink="true" perms="user_likes,friends_likes, email,user_checkins,user_activities,user_interests, friends_interests"></fb:login-button> | 
 					<span>Welcome <?php echo $this->session->userdata('full_name'); ?>: </span>
 					<a href="<?php echo base_url(); ?>account/edit/<?php echo $this->session->userdata('id'); ?>">Account</a>
 					 | <a href="<?php echo base_url(); ?>index.php/logout">Logout</a>

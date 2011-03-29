@@ -160,6 +160,9 @@ class Club extends CI_Controller {
 	  
 	  function gallery()
 	  {
+	  	$this->db->where('id', $this->uri->segment(3));
+		$data['query'] = $this->db->get('clubs');
+	  	
 	  	$this->load->model('gallery_model');
 	  	$club_id = $this->uri->segment(3);
 	  	

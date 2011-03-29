@@ -1,9 +1,9 @@
 <div id="left_panel" class="grid_7">
 		<h6 class="left-marg">
-			Welcome to our <br /> Recommendation Section
+			Welcome to our <br /> Browse Section
 		</h6>
 		<p>
-			Here's a list of recomenndations based on your interests from facebook.
+			From here you can have a look at all our clubs which are sorted by popularity so you only see the best ones first. Just click on a club that looks interesting to you to see their profile.
 		</p>
 	</div>
 	<!-- end left_panel -->
@@ -16,15 +16,15 @@
 			
 		<?php
 		
-		$interests = $this->input->post('interests');
+		$fruits = $this->input->post('interests');
 
-		$arrInt = explode(",",$interests);
+		$arrFruit = explode(",",$fruits);
 		
 		$sql = "SELECT * FROM clubs";
 		$query = $this->db->query($sql);
 		
 		 $data['records'] = array();
-		foreach($arrInt as $v){
+		foreach($arrFruit as $v){
 		
 			$string = trim($v);	
 			  
@@ -57,6 +57,7 @@
 				  	 
 				  }
 			  }
+			  //echo "<br /> +++";
 
 		}
 		?>

@@ -34,6 +34,8 @@
  
 			$elliots_band = $this->facebook->call('get', 'david.sorgan?access_token=2227470867|2.er8xb_cywezjQ83m6QQo7Q__.3600.1299790800-708736884|28IczEkYBWHGROGfUAtVVy1rdMM');
 			var_dump($elliots_band);
+			
+
  
 // Basic post request requiring addition parameteters
 // $attend = $this->facebook->call('post', $event_id.'/attending');

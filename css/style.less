@@ -391,3 +391,113 @@ h2,h3,h4,h5,h6{
 #join:hover{
 	cursor:pointer;
 	}
+	
+	fieldset{
+		border:1px solid #CCC;
+		padding: 10px;
+		legend{
+			color: @blue_highlight;
+			font-family:'CantarellRegular', Arial, sans-serif;
+			padding-bottom:10px;
+			margin:0px;		
+		}
+	}
+	
+	#addclub
+	{
+		input[type='submit']{
+			.button();
+			float:left;
+			text-decoration:none;
+		}
+		
+		input[type='submit']:hover{
+			cursor:pointer;
+	
+		}
+		
+		input[type='submit']:active{
+			cursor:pointer;
+			.inset-shadow();
+		}
+		
+		span{
+			color: #333;
+			font-size:12px;
+		}
+	}
+	
+	#upload{
+			input[type='submit']{
+			.button();
+			float:left;
+			text-decoration:none;
+			}
+			
+			input[type='submit']:hover{
+				cursor:pointer;
+		
+			}
+			
+			input[type='submit']:active{
+				cursor:pointer;
+				.inset-shadow();
+			}
+	}
+	
+	#interests{
+		display:none;
+		
+	}
+	
+#interests_submit{
+	.button();
+}
+
+#interests_submit:hover{
+	cursor:pointer;
+}
+
+#interests_submit:active{
+	cursor:pointer;
+	.inset-shadow();
+}
+
+.step{
+	width: 30%;
+	float:left;
+		height:250px;
+	padding:10px 10px 0px 10px;
+	margin-bottom:10px;
+}
+
+.step:hover{
+	background-color:#EEEEEE;
+
+
+}
+
+.step_link a{
+	color:#FFF !important;
+	text-decoration:none;
+}
+
+.step_link .buttons{
+	color: #FFF;
+	.button();
+	}
+	
+.step_link .buttons:active{
+	color: #FFF;
+	.button();
+		.inset-shadow();
+	}
+	
+	
+	.step_link{
+	width: 30%;
+	float:left;
+	padding:0px 10px 10px 10px;
+
+}
+

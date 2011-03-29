@@ -1,0 +1,103 @@
+<div id="left_panel" class="grid_7">
+	<div id="about-you"></div>
+	
+		<h6 class="left-marg">
+			<?php if($this->session->userdata('is_logged_in') == 'true'){?>
+
+			Welcome <?php echo $this->session->userdata('full_name'); ?>
+			
+			<?php }else{ ?>
+			Welcome to Coterie!
+			<?php } ?>
+		</h6>
+		<p>
+			Quis purus vestibulum, pellentesque vehicula ac, vehicula in ipsum ac odio vehicula, eros vitae a ac scelerisque phasellus. Aenean platea est vitae vivamus mi, elit orci ligula dictum rhoncus donec taciti, enim ac quisque volutpat feugiat justo. Hendrerit hymenaeos vitae ligula mauris condimentum, amet integer ut leo id, in do vestibulum. Fusce viverra sunt mattis, vel eros et erat pellentesque luctus. Feugiat urna, vivamus dictum fusce pulvinar, pellentesque dolor fermentum leo nullam eros, elementum et, eget quis.
+		</p>
+	</div>
+	<!-- end left_panel -->
+	<div id="main_panel" class="grid_16">
+		<h6 class="left-marg">
+			Main panel.
+		</h6>
+		<p>
+			<?php if($this->session->userdata('is_logged_in') != 'true'){?>
+			<a href="<?php echo base_url(); ?>login">Login</a>
+			<?php }else{ ?>
+			<a href="<?php echo base_url(); ?>logout">Logout</a>
+			<?php } ?> | 
+			<a href="<?php echo base_url(); ?>register">Register</a> | 
+			<a href="<?php echo base_url(); ?>facebook_test">Facebook Test</a> |
+			<a href="<?php echo base_url(); ?>addClub">Create Club</a>
+		</p>
+		
+		<p>
+			
+		</p>
+		
+		      <div id="fb-root"></div>
+      <script src="http://connect.facebook.net/en_US/all.js"></script>
+      <script>
+         FB.init({ 
+            appId:'182794741757028', cookie:true, 
+            status:true, xfbml:true 
+         });
+
+		 FB.api('/me', function(response) {
+                     var query = FB.Data.query('select name, interests, sex, pic_square, email from user where uid={0}', response.id);
+                     query.wait(function(rows) {
+ 
+                       document.getElementById('about-you').innerHTML =
+					   '<h4>About You:</h4>' +
+					   '<img src="' + rows[0].pic_square + '" alt="" />' +
+					   rows[0].name + "<br />" +
+					   '<form name="interest_form" action="http://danu2.it.nuigalway.ie/DavidOrgansFYP/fypsite/recommend" method="POST">' +
+					   'Interests!: <textarea name="interests">' + rows[0].interests + "</textarea><br />" +
+					   '<input type="submit" name ="submit" value="Submit" />' +
+					   '</form>' +
+					   'Sex: ' + rows[0].sex + "<br />" +
+					   'Email: ' + rows[0].email + "<br />";
+                     });
+                });
+				
+				
+
+      </script>
+	  
+	 <p>
+	  <div id="fb-root"></div> 
+<div id="login"></div> 
+<div id="test"></div> 
+<div id="movies"></div> 
+<script src="http://connect.facebook.net/en_US/all.js"></script> 
+<script> 
+FB.init({
+    appId  : '182794741757028',
+    status : true, // check login status
+    cookie : true, // enable cookies 
+    xfbml  : true  // parse XFBML
+  });
+FB.Event.subscribe('auth.sessionChange', function(response) {
+  window.location.reload();
+});
+FB.getLoginStatus(function(response) {
+  if (response.session) {
+    // logged in and connected user, someone you know
+    get_friend_likes();
+    document.getElementById('login').innerHTML
+      ='<a href="#" onclick="FB.logout();">Logout</a><br/>';
+  } else {
+    document.getElementById('login').innerHTML
+      ='<fb:login-button show-faces="true" width="200"' 
+      + ' max-rows="1" perms="user_likes, friends_likes">'
+      + '</fb:login-button>';
+    FB.XFBML.parse();
+  }
+});
+</script> 
+</p>
+	  
+	  
+      <fb:login-button autologoutlink="true" perms="user_likes,friends_likes, email,user_checkins,user_activities,user_interests, friends_interests"></fb:login-button>
+
+	</div>
+	<!-- end main_panel -->

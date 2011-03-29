@@ -1,5 +1,5 @@
 <div id="left_panel" class="grid_7">
-	<div id="about-you"></div>
+	
 	
 		<h6 class="left-marg">
 			<?php if($this->session->userdata('is_logged_in') == 'true'){?>
@@ -11,32 +11,40 @@
 			<?php } ?>
 		</h6>
 		<p>
-			Quis purus vestibulum, pellentesque vehicula ac, vehicula in ipsum ac odio vehicula, eros vitae a ac scelerisque phasellus. Aenean platea est vitae vivamus mi, elit orci ligula dictum rhoncus donec taciti, enim ac quisque volutpat feugiat justo. Hendrerit hymenaeos vitae ligula mauris condimentum, amet integer ut leo id, in do vestibulum. Fusce viverra sunt mattis, vel eros et erat pellentesque luctus. Feugiat urna, vivamus dictum fusce pulvinar, pellentesque dolor fermentum leo nullam eros, elementum et, eget quis.
+			Welcome to Coterie, a site dedicated to allowing you to create clubs, join in on discussions, become a member of a club and much more.
 		</p>
+		
+		<div id="about-you"></div>
 	</div>
 	<!-- end left_panel -->
 	<div id="main_panel" class="grid_16">
-		<h6 class="left-marg">
-			Main panel.
-		</h6>
-		<p>
-			<?php if($this->session->userdata('is_logged_in') != 'true'){?>
-			<a href="<?php echo base_url(); ?>login">Login</a>
-			<?php }else{ ?>
-			<a href="<?php echo base_url(); ?>logout">Logout</a>
-			<?php } ?> | 
-			<a href="<?php echo base_url(); ?>register">Register</a> | 
-			<a href="<?php echo base_url(); ?>facebook_test">Facebook Test</a> |
-			<a href="<?php echo base_url(); ?>addClub">Create Club</a>
-		</p>
-		
-		<p>
+
+			<div class="step">
+				<h4>Join</h4>
+				<p>Login using your facebook account info to access clubs, participate in discussions and become a member of your favourite clubs</p>
+				
+			</div>
 			
+		<div class="step">
+			<h4>Create</h4>
+			<p>Having trouble finding a club in something you are interested in? Try and create your own club where you can add information about your club, upload photos and contact your members.</p>
 			
-Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus eleifend facilisis. Morbi et justo quis dui aliquam placerat. Quisque congue, enim et ullamcorper dignissim, nisi odio viverra turpis, eu congue mi eros non libero. Maecenas non sapien interdum erat molestie egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut at viverra tellus. Cras libero justo, tristique sed congue at, lacinia in nulla. Morbi tempor faucibus eros, vel vulputate metus porttitor vel. Maecenas non ligula risus. Aenean non lectus id augue dictum cursus.
-		</p>
-		
-		      <div id="fb-root"></div>
+		</div>
+		<div class="step">
+			<h4>Browse</h4>
+			<p>If your not sure what club to join, use our browse page to see the most popular clubs on the site.</p>
+			
+		</div>
+
+<div class="step_link"><fb:login-button autologoutlink="true" perms="user_likes,friends_likes, email,user_checkins,user_activities,user_interests, friends_interests"></fb:login-button></div>
+			
+<div class="step_link"><a href="<?php echo base_url();?>addClub" class="buttons">Create</a></div>
+
+<div class="step_link"><a href="<?php echo base_url();?>club/browse" class="buttons">Browse</a></div>
+	</div>
+	<!-- end main_panel -->
+	
+			      <div id="fb-root"></div>
       <script src="http://connect.facebook.net/en_US/all.js"></script>
       <script>
          FB.init({ 
@@ -49,12 +57,10 @@ Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus el
                      query.wait(function(rows) {
  
                        document.getElementById('about-you').innerHTML =
-					   '<h4>About You:</h4>' +
-					   '<img src="' + rows[0].pic_square + '" alt="" />' +
-					   rows[0].name + "<br />" +
-					   'Interests!: ' + rows[0].interests + "<br />" +
-					   'Sex: ' + rows[0].sex + "<br />" +
-					   'Email: ' + rows[0].email + "<br />";
+					   '<form name="interest_form" action="http://danu2.it.nuigalway.ie/DavidOrgansFYP/fypsite/recommend" method="POST">' +
+					   '<textarea name="interests" id="interests">' + rows[0].interests + "</textarea><br />" +
+					   '<input type="submit" name ="submit" value="Recommend" id="interests_submit" />' +
+					   '</form>';
                      });
                 });
 				
@@ -62,8 +68,4 @@ Nullam congue lacus id odio pharetra aliquet. Sed dignissim ipsum vitae purus el
 
       </script>
 	  
-	  
-      <fb:login-button autologoutlink="true" perms="email,user_checkins,user_activities,user_interests"></fb:login-button>
 
-	</div>
-	<!-- end main_panel -->

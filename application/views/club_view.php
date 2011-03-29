@@ -14,7 +14,8 @@
 				<p>
 				Description:<?php echo $row->desc; ?><br />
 				Admin: <?php echo $row->admin; ?> <br />
-				Email: <?php echo $row->email; ?>
+				Email: <?php echo $row->email; ?> <br />
+				Members: <?php echo $row->no_members; ?>
 				</p>
 				
 				

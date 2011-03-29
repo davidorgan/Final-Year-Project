@@ -10,30 +10,20 @@
 	<div id="about-club">
 
 	</div>
-	<div id="about-you"></div>
-		      <div id="fb-root"></div>
-      <script src="http://connect.facebook.net/en_US/all.js"></script>
-      <script>
-         FB.init({ 
-            appId:'182794741757028', cookie:true, 
-            status:true, xfbml:true 
-         });
-
-		 FB.api('/me', function(response) {
-                     var query = FB.Data.query('select name, interests, sex, pic_square from user where uid={0}', response.id);
-                     query.wait(function(rows) {
-                       document.getElementById('about-you').innerHTML =
-					   '<h4>About You:</h4>' +
-					   '<img src="' + rows[0].pic_square + '" alt="" />' +
-					   rows[0].name + "<br />" +
-					   'Interests!: ' + rows[0].interests + "<br />" +
-					   'Sex: ' + rows[0].sex + "<br />";
-                     });
-                });
+		<div id="about-club">
+	<?php foreach($query->result() as $row): ?>
+				<h4><?php echo $row->name; ?></h4>
+				<p>
+				Description:<?php echo $row->desc; ?><br />
+				Admin: <?php echo $row->admin; ?> <br />
+				Email: <?php echo $row->email; ?> <br />
+				Members: <?php echo $row->no_members; ?>
+				</p>
 				
 				
+	<?php endforeach; ?>
+	</div>
 
-      </script>
 
 
 	</div>

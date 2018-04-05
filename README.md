@@ -3,6 +3,6 @@
 #### A clubs and societies social network
 #
 # Features:
-### PHP Codeignoter Framework
+### PHP Codeigniter Framework
 ### Facebook OAuth
 ### Reccomendation engine
